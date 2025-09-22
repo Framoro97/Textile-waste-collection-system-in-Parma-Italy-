@@ -420,7 +420,7 @@ class Citizen:
         out[labels[1]] = [round(dg, 4) for dg in self._inf_delta_gaw]
         return out
      
-    def choose_bin(self, rnd=True) -> tuple[Bin, list[Bin]]:
+    def choose_bin(self, rnd=False) -> tuple[Bin, list[Bin]]:
         """
     Restituisce:
     - Il bidone scelto (più vicino o casuale)
@@ -443,36 +443,6 @@ class Citizen:
         closest_nearby = min(near_bins, key=lambda x: x[1])[0] if near_bins else None
         return chosen_bin, closest_nearby
 
-    """ Metodi legati al processo di conferimento dei rifiuti """
-    '''
-    def choose_bin(self, rnd=True) -> tuple[Bin, Bin | None]:
-        """
-    Restituisce una tupla con:
-    - Il bidone scelto (casuale o il più vicino)
-    - Il secondo più vicino (se esiste), per fallback o controllo aggiuntivo.
-        """
-        keys = tuple(self.bins.keys())
-
-        if not rnd:
-            return (keys[0], keys[1] if len(keys) > 1 else None)
-
-        idx = random.choices(range(len(keys)), self._wgh, k=1)[0]
-        sorted_by_dist = sorted(self.bins.items(), key=lambda x: x[1])
-        chosen_bin = keys[idx]
-
-        # Trova il secondo più vicino diverso dal primo
-        second_bin = next((b for b, _ in sorted_by_dist if b != chosen_bin), None)
-
-        return (chosen_bin, second_bin)
-    '''
-    '''
-    def choose_bin(self, rnd = True) -> Bin:
-        """ restituisce il più vicino, 
-            oppure un bin casuale scelto in base alla distanza """
-        idx = 0 if not rnd else random.choices(tuple(range(len(self.bins))), self._wgh, k = 1)[0]
-        return tuple(self.bins.keys())[idx]
-    #devo farne restituire 2
-    '''
     def _recycle(self) -> bool:
         """ riciclo oppure no? """
         rnd = random.random()
@@ -679,5 +649,6 @@ if __name__ == "__main__":
     print(f"Ha riciclato? {Cz[1].recycle}")
     print(f"Quantità persa (non riciclata): {Cz[1].kg_rlost}")
     """
+
 
 
