@@ -176,8 +176,7 @@ class Gestore_Prova:
 
 """
 Per Debug 
-"""        
-            
+"""              
             
 """ standard a tempo fisso        
 env = sp.Environment()   
@@ -197,4 +196,5 @@ env.run(until = 60) """
                 
             
         
+
         
