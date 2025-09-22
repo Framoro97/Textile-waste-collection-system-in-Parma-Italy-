@@ -1,11 +1,5 @@
 # -*- coding: utf-8 -*-
 from __future__ import annotations
-"""
-from Provolone import Ciao
-
-c = Ciao()
-c.saluta()
-"""
 
 """
 Created on Tue Dec 17 15:21:34 2024
@@ -454,7 +448,7 @@ class Citizen:
             if self.calendar is not None and self.calendar.month in self.att.m_season: return self.att.s_factor
             return 1   
 
-    def gen_and_confere(self, rnd_bin: bool = True): #FRA_Integrato con stagionalità, gaw_settimanale delle zone assegnate a bin, e calendario x estrazione
+    def gen_and_confere(self, rnd_bin: bool = False): 
         """ Genera una quantità di rifiuti e, se le condizioni sono soddisfatte,
     tenta il conferimento presso i bidoni disponibili.
 
@@ -649,6 +643,7 @@ if __name__ == "__main__":
     print(f"Ha riciclato? {Cz[1].recycle}")
     print(f"Quantità persa (non riciclata): {Cz[1].kg_rlost}")
     """
+
 
 
 
