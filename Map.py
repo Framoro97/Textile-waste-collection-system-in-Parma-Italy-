@@ -317,7 +317,7 @@ class City:
                                                         )
                                                 for nd, ngh in self.map} # i cittadini di ogni quartiere
         
-        # FRA_Assegna ogni nodo al bin più vicino --> il bin più vicino è il primo per ogni cittadino
+        # Assegna ogni nodo al bin più vicino --> il bin più vicino è il primo per ogni cittadino
         
         for ctz in self.iter_citizens():
             new_bin = tuple(ctz.bins.keys())[0]
@@ -548,12 +548,6 @@ x = {((0,0), (0, 1)): 10, ((0,1), (1, 0)): 20}
 nw = DMatrix(x)
 y = nw._as_df()
 """
-
-"""
-# ⚠️ questo va eseguito *dopo* la creazione della City, es. nel main o in un notebook
-
-
-"""
 """
 # Check su bin specifico
 bin_012 = next((b for b in  C.bins if b.nd == (0, 12)), None)
@@ -561,5 +555,5 @@ if bin_012 is None:
     print("Nessun bin trovato in (0, 12)")
 print("Nodi associati:", bin_012.nd_ctzs[0])
 print("Cittadini associati:", bin_012.nd_ctzs[1])
-
 """
+
