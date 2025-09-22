@@ -592,7 +592,7 @@ class Citizen:
         self._check_gaw()
         self.sts[self.n_trip] = Tr
             
-    def pr_confere_waste(self, mean_time:int, rnd_bin = True):
+    def pr_confere_waste(self, mean_time:int, rnd_bin = False):
         """ il processo simpy se attivato per ogni persona """
         while True:
             time = round(random.expovariate(lambd = 1/mean_time), 4)
@@ -679,4 +679,5 @@ if __name__ == "__main__":
     print(f"Ha riciclato? {Cz[1].recycle}")
     print(f"Quantità persa (non riciclata): {Cz[1].kg_rlost}")
     """
+
 
